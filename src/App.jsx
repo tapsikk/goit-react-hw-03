@@ -1,7 +1,17 @@
+import React from "react";
 import { useEffect, useState } from "react";
-import { Formik } from 'formik';
+import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import ContactForm from "./components/contactForm/ContactForm";
 
-      
-
+const App = () => {
+  return (
+    <>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      {/* <SearchBox />
+<ContactList /> */}
+    </>
+  );
+};
 export default App;
