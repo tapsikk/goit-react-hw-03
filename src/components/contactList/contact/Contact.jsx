@@ -1,7 +1,7 @@
 import style from "./contactStyle.module.scss";
 import { FaUser, FaPhoneAlt } from "react-icons/fa";
 
-const Contact = ({ searchContact, clickDelete }) => {
+const Contact = ({ searchContact, handleClickDelete  }) => {
   const { id, name, number } = searchContact;
   return (
     <li className={style.itemLi}>
@@ -17,7 +17,7 @@ const Contact = ({ searchContact, clickDelete }) => {
       </p>
       <button 
       type="button"
-      onClick={() => clickDelete(id)}>Delete</button>
+      onClick={() => handleClickDelete (id)}>Delete</button>
     </li>
   );
 };
