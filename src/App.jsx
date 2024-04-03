@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-            <h1 className="form-title">Phonebook</h1>
+            <h1>Phonebook</h1>
             <ContactForm addContacts={addContacts} />
             <SearchBox value={search} onFilter={setSearch} />
             {searchContact.length !== 0 ? (
