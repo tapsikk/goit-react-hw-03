@@ -15,15 +15,14 @@ const ContactForm = ({ addContacts }) => {
 
   const handleSubmit = (values, actions ) => {
     const { name, number } = values;
-    addContacts = ({
+    addContacts({
       // ...values,
       id: uuidv4(),
       name, //values.name.trim(),
       number, //values.name.trim(),
     });
-    // onAddTour(nextSubmit);
-    
-    console.log(addContacts);
+    // onAddTour(nextSubmit); 
+    console.log("Contact added:", { name, number });
     actions.resetForm();
   };
 
@@ -35,11 +34,17 @@ const ContactForm = ({ addContacts }) => {
     >
       <Form className={style.form}>
         <label htmlFor={nameFieldId}>Name</label>
+
         <Field type="text" name="name" id={nameFieldId} placeholder="Name..."/>
+
         <ErrorMessage name="name" component={"p"} style={{ color: "red" }} />
+
         <label htmlFor={phoneFieldId}>Number</label>
+
         <Field type="tel" name="number" id={phoneFieldId} placeholder="Number..."/>
+
         <ErrorMessage name="number" component={"p"} style={{ color: "red" }} />
+
         <button type="submit" id={buttonFieldId}>
         Add contact
         </button>

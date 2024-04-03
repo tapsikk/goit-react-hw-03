@@ -1,13 +1,13 @@
-// import style from "./ContactList.module.css";
+import style from "./ContactList.module.css";
 import Contact from "./contact/Contact";
 
-const ContactList = ({ search, deleteContacts }) => {
+const ContactList = ({ searchContact, deleteContacts }) => {
   return (
-    <ul>
-      {search.map((item) => (
+    <ul className={style.ulContact}>
+      {searchContact.map(item => (
         <Contact
           key={item.id} 
-          search={item}
+          searchContact={item}
           handleClickDelete={deleteContacts}
         />
       ))}
