@@ -35,9 +35,6 @@ function App() {
 
   return (
     <>
-      <div className="wrapper">
-        <div className="container">
-          <div className="form-body">
             <h1 className="form-title">Phonebook</h1>
             <ContactForm addContacts={addContacts} />
             <SearchBox value={search} onFilter={setSearch} />
@@ -49,9 +46,6 @@ function App() {
             ) : (
               search.trim() !== '' ? <p style={{textAlign: 'center'}}>Not found!</p> : null
             )}
-          </div>
-        </div>
-      </div>
     </>
   );
 }
