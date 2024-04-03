@@ -3,35 +3,34 @@ import ContactForm from "./components/contactForm/ContactForm";
 import SearchBox from "./components/searchBox/SearchBox";
 import ContactList from "./components/contactList/ContactList";
 
-
 function App() {
   const [contacts, setContacts] = useState(() => {
-    const savedContacts = window.localStorage.getItem('saved-contacts');
+    const savedContacts = window.localStorage.getItem("saved-contacts");
     {
       return savedContacts ? JSON.parse(savedContacts) : [];
     }
   });
 
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
-  const searchContact = contacts.filter(item =>
+  const searchContact = contacts.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const addContacts = newContact => {
-    setContacts(prevСontacts => {
+  const addContacts = (newContact) => {
+    setContacts((prevСontacts) => {
       return [...prevСontacts, newContact];
     });
   };
 
-  const deleteContacts = idContact => {
-    setContacts(prevСontacts => {
-      return prevСontacts.filter(contact => contact.id !== idContact);
+  const deleteContacts = (idContact) => {
+    setContacts((prevСontacts) => {
+      return prevСontacts.filter((contact) => contact.id !== idContact);
     });
   };
 
   useEffect(() => {
-    window.localStorage.setItem('saved-contacts', JSON.stringify(contacts));
+    window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
   }, [contacts]);
 
   return (
@@ -48,7 +47,7 @@ function App() {
                 deleteContacts={deleteContacts}
               />
             ) : (
-              <p className="info">Not found!</p>
+              search.trim() !== '' ? <p style={{textAlign: 'center'}}>Not found!</p> : null
             )}
           </div>
         </div>
